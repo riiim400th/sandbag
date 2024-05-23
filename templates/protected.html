@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Protected</title>
+</head>
+<body>
+    <h1>Protected Page</h1>
+    <p>This page is protected. You have a valid token.</p>
+    <button id="refreshTokenBtn">Refresh Token</button>
+
+    <script>
+        document.getElementById('refreshTokenBtn').addEventListener('click', async () => {
+            const refresh_token = localStorage.getItem('refresh_token');
+
+            const response = await fetch('/refresh', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ refresh_token })
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                localStorage.setItem('access_token', result.access_token);
+            } else {
+                alert(result.message);
+            }
+        });
+
+        (async () => {
+            const access_token = localStorage.getItem('access_token');
+
+            const response = await fetch('/protected', {
+                method: 'GET',
+                headers: { 'Authorization': `Bearer ${access_token}` }
+            });
+
+            if (!response.ok) {
+                window.location.href = '/';
+            }
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Links</title>
+</head>
+<body>
+    <h2>Multiple Links</h2>
+    <ul>
+        <li><a href="/">GET /</a></li>
+        <li><a href="/post">POST form-encoded</a></li>
+        <li><a href="/upload">POST img_upload (multipart)</a></li>
+        <li><a href="/hoge?q=hoge">GET hoge?q=hoge</a></li>
+        <li><a href="/login">acoount admin and user</a></li>
+        <li><a href="/jwt">SPA jwt test</a></li>
+    </ul>
+    <script src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
+</body>
+</html>
