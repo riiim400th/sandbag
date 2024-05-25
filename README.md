@@ -26,7 +26,10 @@ python3 -m pip install -r requirements.txt
 ```
 python3 ./app.py
 ```
-The server will start running at `http://localhost:5000` by default.
+
+Enter PEM pass phrase "hoge".
+
+The server will start running at `https://localhost:443` by default.
 
 ## Usage
 Once the server is running, you can access it through your web browser or make requests using tools like cURL or Postman. Sandbag provides a simple web interface where you can interact with the server and explore its functionality.
