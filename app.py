@@ -223,4 +223,5 @@ def protected():
 
 
 if __name__ == "__main__":
-    app.run()
+    print(' PEM pass phrase is "hoge"')
+    app.run(host='localhost',debug=True, port=443, ssl_context=('.\certs\server.crt', '.\certs\server.key'))
